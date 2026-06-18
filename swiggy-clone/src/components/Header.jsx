@@ -1,5 +1,5 @@
 
-const Header=({searchText,setSearchext})=>{
+const Header=({searchText,setSearchText})=>{
    
     // const filterSearch=
     return(
@@ -16,7 +16,7 @@ const Header=({searchText,setSearchext})=>{
 
             <div className="flex gap-5">
                 <span>Swiggy Coorporate</span>
-                <span><input type="text" className="bg-amber-50" value={searchText} onChange={(e)=>setSearchext(e.target.value)}/><button></button></span>
+                <span><input type="text" className="bg-amber-50" value={searchText} onChange={(e) => {setSearchText(e.target.value)}}/><button></button></span>
                 <span>Offers</span>
                 <span>Help</span>
                 <span>Sign In</span>

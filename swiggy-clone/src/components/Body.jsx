@@ -8,18 +8,37 @@ import Puttu from '../assets/Puttu.avif'
 import Vada from '../assets/Vada.avif'
 import {restaurants} from '../data/restaurants.js'
 import RestaurantCard from './RestaurantCard.jsx'
-import { useState } from 'react'
+import { useState ,useEffect} from 'react'
 
 
 const Body=({searchText})=>{
-    const filterList=restaurants.filter((item)=>item.name.toLowerCase().includes(searchText.toLowerCase()));
+    console.log("searchText:", searchText);
     const  [originalList,setOrginalList]=useState(restaurants)
+  useEffect(()=>{
+    const filterList=restaurants.filter((item)=>item.name.toLowerCase().includes(searchText.toLowerCase()));
+    setOrginalList(filterList)
+    console.log("filterList:", filterList);
+},[searchText])
       
    function handleTopRated(){
     const filterredrateddata=originalList.filter((lst)=>lst.rating>=4.5)
                 setOrginalList(filterredrateddata)
 
    }
+
+function handleAllRestaurant(){
+    setOrginalList(restaurants);
+}
+
+function handleRestaurantByRating(){
+    const sortedRatedRestaurants=[...originalList].sort((a,b)=>b.rating-a.rating);
+    console.log("sorted:",sortedRatedRestaurants)
+    setOrginalList(sortedRatedRestaurants)
+
+
+}
+
+
      const catogories = [ {   
         
         image:Pothichoru
@@ -61,11 +80,7 @@ const Body=({searchText})=>{
         image:Puttu
 
     },
-    { 
-        
-        image:Vada
-
-    }]
+    ]
    
     return(
         <>
@@ -79,17 +94,31 @@ const Body=({searchText})=>{
         )}
         </div>
       </div>
-      <div>
-        <h2 className="text-2xl font-bold mb-6 mx-10">
+      <div >
+        <div>
+            <h2 className="text-2xl font-bold mb-6 mx-10">
             Top restaurant chains in Thiruvananthapuram
-        </h2><button className='bg-amber-400 text-2xl font-bold mb-6 mx-10' onClick={()=>{handleTopRated}} >top rated</button>
+        </h2>
       </div>
+      <div className='flex justify-between'>
+        <div>
+             <button className='bg-amber-400 text-2xl font-bold mb-6 mx-10' onClick={()=>{handleTopRated()}} >Top Rated</button>
+       <button className='bg-amber-400 text-2xl font-bold mb-6 mx-10' onClick={()=>{handleAllRestaurant()}} >All Restaurants</button>
+        </div>
+       
+        <button className='bg-amber-400 text-2xl font-bold mb-6 mx-10' onClick={()=>{handleRestaurantByRating()}} >Sort By Rating</button>
+      </div>
+        </div>
+        
       <div className='flex gap-4 flex-wrap'>
-         
-        {filterList.map((rest)=>(
+         {originalList.length>0?
+         originalList.map((rest)=>(
             <RestaurantCard key={rest.id} res={rest} />
             
-        ))}
+        )):<h1 className="text-2xl font-bold mx-auto mt-10">
+                No Restaurant Found 😔
+                </h1>}
+        
       </div>
         </>
        

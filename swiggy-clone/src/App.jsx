@@ -3,11 +3,11 @@ import Body from "./components/Body";
 import './index.css'
 import { useState } from "react"
 function App() {
-  const[searchText,setSearchext]=useState('')
+  const[searchText,setSearchText]=useState('')
 
   return (
     <>
-      <Header searchText={searchText} setSearchext={setSearchext} />
+      <Header searchText={searchText} setSearchText={setSearchText} />
       <Body searchText={searchText}/>
     </>
   )
