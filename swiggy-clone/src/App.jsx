@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={ <Body searchText={searchText}/>}/>
 
-        <Route path="/restaurant" element={<RestaurantDetails/>}/>
+        <Route path="/restaurants/:id" element={<RestaurantDetails/>}/>
         
       </Routes>
      

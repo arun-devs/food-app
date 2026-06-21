@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+
 const RestaurantCard=({res})=>{
-    const {name,rating,time,cuisine,location,offer,image}=res
+    const {id,name,rating,time,cuisine,location,offer,image}=res
   
      return(
        
-
+        <Link to={"/restaurants/" +id}>
         <div className="bg-cyan-50 w-70 h-90 mx-10">
              
              <img src={image} className="w-full h-44 object-cover rounded-2xl"/>
@@ -16,6 +18,7 @@ const RestaurantCard=({res})=>{
 
 
         </div>
+        </Link>
     )
 }
 

@@ -12,8 +12,12 @@ import { useState ,useEffect} from 'react'
 
 
 const Body=({searchText})=>{
+
+
     console.log("searchText:", searchText);
+
     const  [originalList,setOrginalList]=useState(restaurants)
+
   useEffect(()=>{
     const filterList=restaurants.filter((item)=>item.name.toLowerCase().includes(searchText.toLowerCase()));
     setOrginalList(filterList)
