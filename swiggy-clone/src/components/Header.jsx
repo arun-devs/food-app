@@ -1,5 +1,5 @@
 
-const Header=({searchText,setSearchText})=>{
+const Header=({searchText,setSearchText,cartCount})=>{
    
     // const filterSearch=
     return(
@@ -20,7 +20,7 @@ const Header=({searchText,setSearchText})=>{
                 <span>Offers</span>
                 <span>Help</span>
                 <span>Sign In</span>
-                <span>Cart</span>
+                <span>Cart ({cartCount})</span>
             </div>
         </div>
     )

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { restaurants } from "../data/restaurants"
 import MenuItem from "./MenuItem"
-const RestaurantDetails=()=>{
+const RestaurantDetails=({setCartCount})=>{
     const{id}=useParams()
 
     const rest2RenderAfterGettingID=restaurants.find((ITM)=>ITM.id===Number(id))
@@ -37,7 +37,7 @@ const RestaurantDetails=()=>{
                 {rest2RenderAfterGettingID.menu.map((itm)=>(
                     
                     <div key={itm.id}>
-                        <MenuItem menuitm={itm}/>
+                        <MenuItem menuitm={itm} menuCart={setCartCount}/>
                     </div>
                       ))}
                    
