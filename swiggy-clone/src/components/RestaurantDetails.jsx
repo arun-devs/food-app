@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom"
 import { restaurants } from "../data/restaurants"
+import MenuItem from "./MenuItem"
 const RestaurantDetails=()=>{
     const{id}=useParams()
 
@@ -30,6 +31,17 @@ const RestaurantDetails=()=>{
             <p className="font-semibold text-green-600">
                 {rest2RenderAfterGettingID.offer}
             </p>
+        </div>
+        <div className="font-extrabold mt-3">
+                <h2 className="text-rose-900">Menu</h2>
+                {rest2RenderAfterGettingID.menu.map((itm)=>(
+                    
+                    <div key={itm.id}>
+                        <MenuItem menuitm={itm}/>
+                    </div>
+                      ))}
+                   
+
         </div>
     </div>
 </div>):<h1>no dta found</h1>

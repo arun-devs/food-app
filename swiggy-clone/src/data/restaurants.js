@@ -7,7 +7,19 @@ export const restaurants = [
   cuisine: "Burgers, Fried Chicken",
   location: "Statue",
   offer: "50% OFF UPTO ₹100",
-  image: "https://images.unsplash.com/photo-1513639776629-7b61b0ac49cb"
+  image: "https://images.unsplash.com/photo-1513639776629-7b61b0ac49cb",
+  menu: [
+        {
+            id: 1,
+            name: "Chicken Burger",
+            price: 149
+        },
+        {
+            id: 2,
+            name: "French Fries",
+            price: 99
+        }
+    ]
 },
 {
   id: 5,
@@ -17,7 +29,19 @@ export const restaurants = [
   cuisine: "Burgers, Beverages",
   location: "Pattom",
   offer: "ITEMS AT ₹99",
-  image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd"
+  image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd",
+  menu: [
+        {
+            id: 1,
+            name: "Cream Bun",
+            price: 149
+        },
+        {
+            id: 2,
+            name: "Malabar fry",
+            price: 99
+        }
+    ]
 },
 {
   id: 6,
