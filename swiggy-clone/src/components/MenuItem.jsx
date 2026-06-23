@@ -1,6 +1,6 @@
-const MenuItem=({menuitm,menuCart})=>{
+const MenuItem=({menuitm,setCartCount,setCartItems,cartItems})=>{
     function addToCart(){
-        menuCart(prev=>prev+1)
+        setCartCount(prev=>prev+1)
     }
     return (
                 <>
