@@ -1,6 +1,16 @@
 const MenuItem=({menuitm,setCartCount,setCartItems,cartItems})=>{
     function addToCart(){
         setCartCount(prev=>prev+1)
+        const isCartContain=cartItems.find((itm)=>itm.id===menuitm.id)
+        if (isCartContain){
+            setCartItems(prev=>(prev.map((item)=>
+                item.id===menuitm.id?{...item,qty:item.qty+1}:
+                item
+            )))
+        }
+        else {
+            setCartItems(prev=>[...prev,{...menuitm ,qty:1}])
+        }
     }
     return (
                 <>

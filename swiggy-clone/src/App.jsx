@@ -15,7 +15,8 @@ function App() {
       <Header searchText={searchText} setSearchText={setSearchText} cartCount={cartCount} />
       <Routes>
         <Route path="/" element={ <Body searchText={searchText}/>}/>
-        <Route path="/restaurants/:id" element={<RestaurantDetails setCartCount={setCartCount} setCartItems={setCartItems}/>}/>
+        <Route path="/restaurants/:id" element={<RestaurantDetails setCartCount={setCartCount} 
+                          setCartItems={setCartItems} cartItems={cartItems}/>}/>
         
       </Routes>
      
