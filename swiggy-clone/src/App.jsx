@@ -4,6 +4,7 @@ import './index.css'
 import { useState } from "react"
 import { Route,Routes } from "react-router-dom";
 import RestaurantDetails from "./components/RestaurantDetails";
+import Cart from "./components/Cart";
 
 function App() {
   const[searchText,setSearchText]=useState('')
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={ <Body searchText={searchText}/>}/>
         <Route path="/restaurants/:id" element={<RestaurantDetails setCartCount={setCartCount} 
                           setCartItems={setCartItems} cartItems={cartItems}/>}/>
+        <Route path="/Cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems}/>}/>
         
       </Routes>
      
