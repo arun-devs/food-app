@@ -10,12 +10,12 @@ export const restaurants = [
   image: "https://images.unsplash.com/photo-1513639776629-7b61b0ac49cb",
   menu: [
         {
-            id: 1,
+            id: 101,
             name: "Chicken Burger",
             price: 149
         },
         {
-            id: 2,
+            id: 102,
             name: "French Fries",
             price: 99
         }
@@ -32,12 +32,12 @@ export const restaurants = [
   image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd",
   menu: [
         {
-            id: 1,
+            id: 103,
             name: "Cream Bun",
             price: 149
         },
         {
-            id: 2,
+            id: 152,
             name: "Malabar fry",
             price: 99
         }
