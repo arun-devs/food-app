@@ -18,7 +18,7 @@ function App() {
         <Route path="/" element={ <Body searchText={searchText}/>}/>
         <Route path="/restaurants/:id" element={<RestaurantDetails setCartCount={setCartCount} 
                           setCartItems={setCartItems} cartItems={cartItems}/>}/>
-        <Route path="/Cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems}/>}/>
+        <Route path="/Cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} setCartCount={setCartCount} />}/>
         
       </Routes>
      
