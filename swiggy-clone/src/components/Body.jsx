@@ -6,23 +6,20 @@ import Poori from '../assets/Poori.avif'
 import Pothichoru from '../assets/Pothichoru.avif'
 import Puttu from '../assets/Puttu.avif'
 import Vada from '../assets/Vada.avif'
-import {restaurants} from '../data/restaurants.js'
+// import {restaurants} from '../data/restaurants.js'
 import RestaurantCard from './RestaurantCard.jsx'
 import { useState ,useEffect} from 'react'
 
 
-const Body=({searchText})=>{
-
-
-    console.log("searchText:", searchText);
-
-    const  [originalList,setOrginalList]=useState(restaurants)
-
+const Body=({searchText,restaurants})=>{
+     const  [originalList,setOrginalList]=useState(restaurants)
+console.log("arun");
   useEffect(()=>{
     const filterList=restaurants.filter((item)=>item.name.toLowerCase().includes(searchText.toLowerCase()));
+    
     setOrginalList(filterList)
-    console.log("filterList:", filterList);
-},[searchText])
+    
+},[searchText,restaurants])
       
    function handleTopRated(){
     const filterredrateddata=originalList.filter((lst)=>lst.rating>=4.5)
@@ -36,8 +33,7 @@ function handleAllRestaurant(){
 
 function handleRestaurantByRating(){
     const sortedRatedRestaurants=[...originalList].sort((a,b)=>b.rating-a.rating);
-    console.log("sorted:",sortedRatedRestaurants)
-    setOrginalList(sortedRatedRestaurants)
+       setOrginalList(sortedRatedRestaurants)
 
 
 }
@@ -85,7 +81,8 @@ function handleRestaurantByRating(){
 
     },
     ]
-   
+   console.log("restaurants:", restaurants);
+console.log("originalList:", originalList);
     return(
         <>
         <div className="px-10 py-6">

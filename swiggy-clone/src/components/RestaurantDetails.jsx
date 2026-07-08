@@ -1,11 +1,12 @@
-import { useParams } from "react-router-dom"
-import { restaurants } from "../data/restaurants"
+import {useParams } from "react-router-dom"
 import MenuItem from "./MenuItem"
-const RestaurantDetails=({setCartCount,setCartItems,cartItems})=>{
+const RestaurantDetails=({setCartCount,setCartItems,cartItems,restaurants})=>{
     const{id}=useParams()
 
-    const rest2RenderAfterGettingID=restaurants.find((ITM)=>ITM.id===Number(id))
+    const rest2RenderAfterGettingID=restaurants.find((ITM)=>ITM.id===id)
     
+
+
     return(
         <>
 
