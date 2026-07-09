@@ -11,7 +11,7 @@ import RestaurantCard from './RestaurantCard.jsx'
 import { useState ,useEffect} from 'react'
 
 
-const Body=({searchText,restaurants})=>{
+const Body=({searchText,restaurants,loading})=>{
      const  [originalList,setOrginalList]=useState(restaurants)
 console.log("arun");
   useEffect(()=>{
@@ -83,6 +83,10 @@ function handleRestaurantByRating(){
     ]
    console.log("restaurants:", restaurants);
 console.log("originalList:", originalList);
+if (loading) {
+        return <h1 className="text-2xl text-center mt-10">Loading...</h1>;;
+    }
+
     return(
         <>
         <div className="px-10 py-6">

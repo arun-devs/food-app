@@ -12,12 +12,27 @@ function App() {
   const [cartCount, setCartCount] = useState(0)
   const [cartItems,setCartItems]=useState([])
   const [restaurants, setRestaurants] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
   useEffect(()=>{
   
       const fetchData=async ()=>{
-          const resp=await fetch("https://6a4daf1be1cf82a4a17e7d79.mockapi.io/foodapp/restaurants")
+        setLoading(true);
+        try{
+
+           const resp=await fetch("https://6a4daf1be1cf82a4a17e7d79.mockapi.io/foodapp/restaurants")
           const restaurantData=await resp.json()
          setRestaurants(restaurantData)
+         
+        }
+        catch(error){
+            setError("Unable to load restaurants.");
+            console.log(error);
+        }
+        finally{
+            setLoading(false);
+              }
+         
       } 
       fetchData();
      
@@ -28,7 +43,7 @@ function App() {
     <>
       <Header searchText={searchText} setSearchText={setSearchText} cartCount={cartCount} />
       <Routes>
-        <Route path="/" element={ <Body searchText={searchText}   restaurants={restaurants} />}/>
+        <Route path="/" element={ <Body searchText={searchText}   restaurants={restaurants} loading={loading} />}/>
         <Route path="/restaurants/:id" element={<RestaurantDetails setCartCount={setCartCount} 
                           setCartItems={setCartItems} cartItems={cartItems} restaurants={restaurants}/>}/>
         <Route path="/Cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} setCartCount={setCartCount} />}/>
