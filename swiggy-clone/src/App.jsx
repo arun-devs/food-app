@@ -17,11 +17,15 @@ function App() {
   useEffect(()=>{
   
       const fetchData=async ()=>{
+         setError("");
         setLoading(true);
         try{
 
            const resp=await fetch("https://6a4daf1be1cf82a4a17e7d79.mockapi.io/foodapp/restaurants")
-          const restaurantData=await resp.json()
+            if (!resp.ok) {
+          throw new Error("Unable to load restaurants");
+                          }          
+           const restaurantData=await resp.json()
          setRestaurants(restaurantData)
          
         }
@@ -43,7 +47,7 @@ function App() {
     <>
       <Header searchText={searchText} setSearchText={setSearchText} cartCount={cartCount} />
       <Routes>
-        <Route path="/" element={ <Body searchText={searchText}   restaurants={restaurants} loading={loading} />}/>
+        <Route path="/" element={ <Body searchText={searchText}   restaurants={restaurants} loading={loading} error={error}/>}/>
         <Route path="/restaurants/:id" element={<RestaurantDetails setCartCount={setCartCount} 
                           setCartItems={setCartItems} cartItems={cartItems} restaurants={restaurants}/>}/>
         <Route path="/Cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} setCartCount={setCartCount} />}/>

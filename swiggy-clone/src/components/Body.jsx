@@ -11,7 +11,7 @@ import RestaurantCard from './RestaurantCard.jsx'
 import { useState ,useEffect} from 'react'
 
 
-const Body=({searchText,restaurants,loading})=>{
+const Body=({searchText,restaurants,loading,error})=>{
      const  [originalList,setOrginalList]=useState(restaurants)
 console.log("arun");
   useEffect(()=>{
@@ -86,6 +86,13 @@ console.log("originalList:", originalList);
 if (loading) {
         return <h1 className="text-2xl text-center mt-10">Loading...</h1>;;
     }
+if (error){
+     return(
+        <h1 className="text-2xl text-center mt-10 text-red-600">
+            {error}
+        </h1>
+    );
+}
 
     return(
         <>
