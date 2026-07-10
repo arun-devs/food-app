@@ -3,9 +3,12 @@ import Body from "./components/Body";
 import './index.css'
 import { useState } from "react"
 import { Route,Routes } from "react-router-dom";
-import RestaurantDetails from "./components/RestaurantDetails";
-import Cart from "./components/Cart";
+// import RestaurantDetails from "./components/RestaurantDetails";
+// import Cart from "./components/Cart";
 import { useEffect } from "react";
+import { lazy,Suspense } from "react";
+const Cart=lazy(()=>import("./components/Cart"))
+  const RestaurantDetails=lazy(()=>import("./components/RestaurantDetails"))
 
 function App() {
   const[searchText,setSearchText]=useState('')
@@ -43,9 +46,12 @@ function App() {
       
   },[])
 
+  
+
   return (
     <>
       <Header searchText={searchText} setSearchText={setSearchText} cartCount={cartCount} />
+      <Suspense fallback={<h1>loading.......</h1>}>
       <Routes>
         <Route path="/" element={ <Body searchText={searchText}   restaurants={restaurants} loading={loading} error={error}/>}/>
         <Route path="/restaurants/:id" element={<RestaurantDetails setCartCount={setCartCount} 
@@ -53,6 +59,8 @@ function App() {
         <Route path="/Cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} setCartCount={setCartCount} />}/>
         
       </Routes>
+      </Suspense>
+      
      
     </>
   )
