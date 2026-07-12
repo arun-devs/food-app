@@ -20,7 +20,7 @@ A modern food ordering application built with **React.js** that demonstrates cor
 
 ## 🍽️ Restaurant Details
 
-![Restaurant Details](./src/assets/screenshots/restaurant.png)
+![Menu Details](./src/assets/screenshots/restaurant.png)
 
 ---
 
