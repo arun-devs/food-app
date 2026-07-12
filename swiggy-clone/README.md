@@ -14,19 +14,19 @@ A modern food ordering application built with **React.js** that demonstrates cor
 
 ## 🏠 Home Page
 
-![Home Page](assets/screenshots/home.png)
+![Home Page](./src/assets/screenshots/home.png)
 
 ---
 
 ## 🍽️ Restaurant Details
 
-![Restaurant Details](assets/screenshots/restaurant.png)
+![Restaurant Details](./src/assets/screenshots/restaurant.png)
 
 ---
 
 ## 🛒 Cart
 
-![Cart](assets/screenshots/cart.png)
+![Cart](./src/assets/screenshots/cart.png)
 
 ---
 
