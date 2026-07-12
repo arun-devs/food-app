@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { memo } from "react";
 
 const RestaurantCard=({res})=>{
+    console.log("RestaurantCard Render:", res.name);
     const {id,name,rating,time,cuisine,location,offer,image}=res
   
      return(
@@ -22,4 +24,4 @@ const RestaurantCard=({res})=>{
     )
 }
 
-export default RestaurantCard
+export default memo(RestaurantCard)
