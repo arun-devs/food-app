@@ -83,7 +83,7 @@ A modern food ordering application built with **React.js** that demonstrates cor
 # 📂 Project Structure
 
 ```
-food-app
+swiggy-clone
 │
 ├── assets
 │   └── screenshots
@@ -116,7 +116,7 @@ git clone https://github.com/arun-devs/food-app.git
 Go to the project directory
 
 ```bash
-cd food-app
+cd swiggy-clone
 ```
 
 Install dependencies
