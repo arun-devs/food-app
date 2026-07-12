@@ -7,6 +7,7 @@ import { Route,Routes } from "react-router-dom";
 // import Cart from "./components/Cart";
 import { useEffect } from "react";
 import { lazy,Suspense } from "react";
+import CartContext from "./context/CartContext";
 const Cart=lazy(()=>import("./components/Cart"))
   const RestaurantDetails=lazy(()=>import("./components/RestaurantDetails"))
 
@@ -49,20 +50,25 @@ function App() {
   
 
   return (
-    <>
+    <CartContext.Provider 
+      value={{
+         cartItems,
+        setCartItems,
+        cartCount,
+        setCartCount
+            }}>
       <Header searchText={searchText} setSearchText={setSearchText} cartCount={cartCount} />
       <Suspense fallback={<h1>loading.......</h1>}>
       <Routes>
         <Route path="/" element={ <Body searchText={searchText}   restaurants={restaurants} loading={loading} error={error}/>}/>
-        <Route path="/restaurants/:id" element={<RestaurantDetails setCartCount={setCartCount} 
-                          setCartItems={setCartItems} cartItems={cartItems} restaurants={restaurants}/>}/>
-        <Route path="/Cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} setCartCount={setCartCount} />}/>
+        <Route path="/restaurants/:id" element={<RestaurantDetails  restaurants={restaurants}/>}/>
+        <Route path="/Cart" element={<Cart  />}/>
         
       </Routes>
       </Suspense>
       
      
-    </>
+    </CartContext.Provider>
   )
 }
 

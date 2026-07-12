@@ -14,7 +14,15 @@ const Header=({searchText,setSearchText,cartCount})=>{
                 </Link>
               
                 
-                <div className="font-bold underline">Other▶️</div>
+                <div className="flex items-center justify-between border-b-2 border-orange-400 pb-2 mb-5">
+                    <h2 className="text-2xl font-bold text-gray-800">
+                    Other 
+                </h2>
+
+                 <span className="text-orange-500 text-xl">
+                     ▼
+                 </span>
+</div>
             </div>
 
             <div className="flex gap-5">

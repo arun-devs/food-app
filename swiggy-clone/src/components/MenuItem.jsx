@@ -1,4 +1,16 @@
-const MenuItem=({menuitm,setCartCount,setCartItems,cartItems})=>{
+import { useContext } from "react"
+import CartContext from "../context/CartContext"
+
+const MenuItem=({menuitm})=>{
+   
+   
+    const {
+    cartItems,
+    setCartItems,
+    setCartCount
+} = useContext(CartContext);
+
+
     function addToCart(){
         setCartCount(prev=>prev+1)
         const availableiItem=cartItems.find((itm)=>itm.id===menuitm.id)
@@ -17,8 +29,7 @@ const MenuItem=({menuitm,setCartCount,setCartItems,cartItems})=>{
         if (availableiItem){
             if (availableiItem.qty>1){
                 setCartItems(temp=>temp.map((itm)=>(itm.id===menuitm.id)?{...itm,qty:itm.qty-1}:itm))
-                setCartCount(prev =>{console.log("Previous Count:", prev);
-                 return prev - 1})
+                setCartCount(prev => prev - 1)
             }
             else{ 
                   setCartItems(temp=>temp.filter((itm)=>itm.id!==menuitm.id))  

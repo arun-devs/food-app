@@ -13,7 +13,6 @@ import { useState ,useEffect} from 'react'
 
 const Body=({searchText,restaurants,loading,error})=>{
      const  [originalList,setOrginalList]=useState(restaurants)
-console.log("arun");
   useEffect(()=>{
     const filterList=restaurants.filter((item)=>item.name.toLowerCase().includes(searchText.toLowerCase()));
     
@@ -81,8 +80,6 @@ function handleRestaurantByRating(){
 
     },
     ]
-   console.log("restaurants:", restaurants);
-console.log("originalList:", originalList);
 if (loading) {
         return <h1 className="text-2xl text-center mt-10">Loading...</h1>;;
     }
