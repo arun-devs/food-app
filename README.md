@@ -6,7 +6,7 @@ A modern food ordering application built with **React.js** that demonstrates cor
 
 ## 🚀 Live Demo
 
-🔗 **https://food-app-three-navy.vercel.app/**
+🔗 **https://food-app-psi-two.vercel.app**
 
 ---
 
@@ -145,7 +145,7 @@ This project is deployed using **Vercel**.
 
 Live URL:
 
-https://food-app-three-navy.vercel.app/
+https://food-app-psi-two.vercel.app
 
 ---
 
