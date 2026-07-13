@@ -116,7 +116,7 @@ git clone https://github.com/arun-devs/food-app.git
 Go to the project directory
 
 ```bash
-cd swiggy-clone
+cd food-app
 ```
 
 Install dependencies
